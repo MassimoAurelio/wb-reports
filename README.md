@@ -7,7 +7,7 @@
 1. Установите браузерное расширение для выполнения пользовательских скриптов, например:
    - [User JavaScript and CSS](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld) для Chrome
 
-2. Скопируйте содержимое этого скрипта и добавьте его в расширение.
+2. Скопируйте содержимое index.js скрипта ПОЛНОСТЬЮ и добавьте его в расширение.
 
 3. Перейдите на страницу статистики Wildberries:
    - https://cmp.wildberries.ru/campaigns/statistics/all
