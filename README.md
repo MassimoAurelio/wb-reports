@@ -36,3 +36,7 @@
 - File System Access API (для выбора папки)
 - ES6+ features
 - Fetch API
+
+
+<img width="190" alt="image" src="https://github.com/user-attachments/assets/1a8412f5-f877-4cfd-a922-6af3fcbaede5" />
+
