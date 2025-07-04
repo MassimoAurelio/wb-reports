@@ -111,7 +111,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     const folderPathInput = document.getElementById('folderPathInput');
     const selectFolderBtn = document.getElementById('selectFolderBtn');
 
-    // Выбор папки через File System Access API
+    
     selectFolderBtn.addEventListener('click', async () => {
         try {
             if ('showDirectoryPicker' in window) {
@@ -149,12 +149,12 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         }
     }
 
-    // Функция для скачивания файла из Google Drive
+    
     async function downloadGitHubFile() {
     try {
         debugInfo.innerHTML += '<div style="color: #17a2b8;">⏳ Скачивание шаблона "Сборка отчетов.xlsx" из GitHub...</div>';
         
-        // Правильная RAW-ссылка
+        
         const fileUrl = 'https://raw.githubusercontent.com/MassimoAurelio/wb-reports/main/%D0%A1%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%BE%D1%82%D1%87%D0%B5%D1%82%D0%BE%D0%B2.xlsx';
         
         const response = await fetch(fileUrl);
@@ -190,7 +190,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         console.error('Ошибка:', error);
         debugInfo.innerHTML += `<div style="color: #dc3545;">✗ Ошибка при скачивании: ${error.message}</div>`;
         
-        // Дополнительная информация для отладки
+        
         debugInfo.innerHTML += `<div style="color: #6c757d;">Проверьте: 
             1. Репозиторий публичный
             2. Файл существует по указанному пути
@@ -199,7 +199,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     }
 }
 
-    // Поиск кампаний
+    
     fetchBtn.addEventListener('click', async () => {
         fetchBtn.disabled = true;
         fetchBtn.style.background = '#6c757d';
@@ -269,7 +269,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         }
     });
 
-    // Скачивание отчетов
+    
     downloadReportsBtn.addEventListener('click', async () => {
         if (foundCampaigns.length === 0) {
             alert('Нет кампаний для скачивания');
@@ -317,7 +317,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 								const fileName = `статистика-${formattedDateFrom}-${formattedDateTo}-${campaign.id}.xlsx`;
 
                 if (selectedDirectoryHandle) {
-                    // Сохранение в выбранную папку через File System Access API
+                    
                     try {
                         const fileHandle = await selectedDirectoryHandle.getFileHandle(fileName, { create: true });
                         const writable = await fileHandle.createWritable();
@@ -327,7 +327,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
                         successCount++;
                     } catch (error) {
                         console.error('Error saving file:', error);
-                        // Если не получилось сохранить через API, предлагаем скачать стандартным способом
+                        
                         const link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
                         link.download = fileName;
@@ -339,7 +339,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
                         successCount++;
                     }
                 } else {
-                    // Стандартное скачивание, если папка не выбрана
+                    
                     const link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
                     link.download = fileName;
@@ -364,7 +364,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
             }
         }
 
-        // После скачивания всех отчетов скачиваем дополнительный файл
+        
         await downloadGitHubFile();
 
         debugInfo.innerHTML += `<div style="color: #28a745; font-weight: bold;">✅ Готово! Успешно: ${successCount}, Ошибок: ${errorCount}</div>`;
